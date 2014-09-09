@@ -668,7 +668,7 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 ###############################################################################
 
 # Menu bar: Set date and time format e.g. Sun 11 Aug 16:55
-defaults write com.apple.menuextra.clock DateFormat -string "E MMM d HH:mm"
+defaults write com.apple.menuextra.clock DateFormat -string "E MMM d hh:mm"
 
 
 ###############################################################################
