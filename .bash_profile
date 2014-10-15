@@ -61,4 +61,9 @@ fi
 
 # oc tools exports and config
 export OC_REPO_PATH=~/Projects/octools
+
+# hive/hadoop
+export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
+export HIVE_HOME=export HIVE_HOME=/usr/local/Cellar/hive/0.13.1/libexec
+
 source ${OC_REPO_PATH}/shell/oc_bash_profile.sh
