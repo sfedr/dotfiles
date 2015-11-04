@@ -19,6 +19,54 @@ alias s="subl ."
 alias o="open"
 alias oo="open ."
 
+# octools shortcuts
+alias ocmerrs="oc ocmon log search --client-sort True l=ERROR -s 2h"
+
+# projects shortcuts
+project() {
+    if [ -z "$1" ]
+    then
+        echo "Need to pass project parameter"
+    else
+        target=$1
+        echo "Setting up $target"
+        case $target in
+            ocmon)
+                p
+                cd ocmon
+                workon ocmon
+                export NETFLIX_ENVIRONMENT=prod
+                export OCMON_DATA=dev
+                ;;
+            panics)
+                p
+                cd panicer
+                workon panics
+                ;;
+            ocperf)
+                p
+                cd ocperf
+                workon ocperf
+                ;;
+            ocmonlib)
+                p
+                cd ocmonlib
+                workon ocmonlib
+                export NETFLIX_ENVIRONMENT=prod
+                export OCMON_DATA=dev
+                ;;
+            octools)
+                p
+                cd octools
+                workon oc
+                ;;
+            *)
+                echo "Don't know what to do with project $target"
+        esac
+    fi
+    return 0
+}
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color"
