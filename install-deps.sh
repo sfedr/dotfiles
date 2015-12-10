@@ -1,3 +1,10 @@
+# Check for Homebrew,
+# Install if we don't have it
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # https://github.com/rupa/z
 HELPERS_PATH=~/"Projects/helpers"
 git clone https://github.com/rupa/z.git $HELPERS_PATH/
