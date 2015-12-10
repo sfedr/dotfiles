@@ -4,12 +4,30 @@
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
-cask install dropbox 2> /dev/null
-cask install google-chrome 2> /dev/null
-cask install imageoptim 2> /dev/null
-cask install iterm2 2> /dev/null
-cask install sublime-text 2> /dev/null
-#cask install the-unarchiver 2> /dev/null
-cask install virtualbox 2> /dev/null
-cask install vlc 2> /dev/null
-cask install mysqlworkbench 2> /dev/null
+# Apps
+apps=(
+  alfred
+  appcleaner
+  atom
+  dropbox
+  google-chrome
+  hipchat
+  firefox
+  flash
+  intellij-idea
+  iterm2
+  java
+  mysqlworkbench
+  qlcolorcode
+  qlmarkdown
+  quicklook-json
+  screenflick
+  skype
+  slack
+  spotify
+  sublime-text
+  the-unarchiver
+  vagrant
+  virtualbox
+  vlc
+)
