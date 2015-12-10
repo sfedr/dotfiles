@@ -9,7 +9,9 @@ apps=(
   alfred
   appcleaner
   atom
+  dash
   dropbox
+  github-desktop
   google-chrome
   hipchat
   firefox
@@ -21,13 +23,24 @@ apps=(
   qlcolorcode
   qlmarkdown
   quicklook-json
+  quip
   screenflick
   skype
   slack
+  sourcetree
   spotify
   sublime-text
+  teamviewer
   the-unarchiver
   vagrant
   virtualbox
   vlc
 )
+
+# Install apps to /Applications
+# Default is: /Users/$user/Applications
+echo "installing apps..."
+brew cask install --appdir="/Applications" ${apps[@]}
+
+# allow alfred to see installed apps
+brew cask alfred link
