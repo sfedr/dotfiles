@@ -7,6 +7,7 @@ fi
 brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
+brew tap Homebrew/bundle
 
 # https://github.com/rupa/z
 HELPERS_PATH=~/"Projects/helpers"
