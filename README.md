@@ -8,7 +8,7 @@ Mostly based on https://github.com/mathiasbynens/dotfiles and https://github.com
 # New machine setup
 1. source ./install-deps.sh
 2. brew bundle Brewfile
-3. brew cask Caskfile
+3. brew bundle Caskfile
 4. bootstrap your shell:
     source ./bootstrap.sh
 
