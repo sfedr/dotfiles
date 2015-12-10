@@ -105,3 +105,6 @@ function get_aws_creds_for_boto() {
   echo ""
   echo "DONE."
 }
+
+#to install homebrew into /Applications
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"

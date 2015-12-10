@@ -31,26 +31,24 @@ install homebrew/dupes/screen
 install homebrew/php/php55 --with-gmp
 
 # Install other useful binaries
-binaries=(
-    ack
-    bfg
-    hub
-    git
-    graphicsmagick
-    hashpump
-    nmap
-    node
-    p7zip
-    pv
-    python
-    rename
-    tree
-    webkit2png
-    rename
-    trash
-    hub
-    git
-)
+install ack
+install bfg
+install hub
+install git
+install graphicsmagick
+install hashpump
+install nmap
+install node
+install p7zip
+install pv
+install python
+install rename
+install tree
+install webkit2png
+install rename
+install trash
+install hub
+install git
 
 # Remove outdated versions from the cellar
 cleanup
