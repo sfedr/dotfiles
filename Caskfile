@@ -1,5 +1,5 @@
 # Install native apps
-# Usage: `brew bundle Caskfile`
+# Usage: `brew cask Caskfile`
 
 install caskroom/cask/brew-cask
 tap caskroom/versions
@@ -28,6 +28,7 @@ apps=(
   skype
   slack
   sourcetree
+  spectacle
   spotify
   sublime-text
   teamviewer
@@ -40,7 +41,7 @@ apps=(
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
 echo "installing apps..."
-brew cask install --appdir="/Applications" ${apps[@]}
+install --appdir="/Applications" ${apps[@]}
 
 # allow alfred to see installed apps
-brew cask alfred link
+alfred link
