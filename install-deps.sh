@@ -9,7 +9,7 @@ brew install brew-cask
 brew tap caskroom/versions
 
 # https://github.com/rupa/z
-HELPERS_PATH=~/"Projects/helpers"
+HELPERS_PATH=~/"Projects/helpers/z"
 git clone https://github.com/rupa/z.git $HELPERS_PATH/
 chmod +x $HELPERS_PATH/z/z.sh
 # also consider moving over your current .z file if possible. it's painful to rebuild :)
