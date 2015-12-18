@@ -12,9 +12,6 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# init z https://github.com/rupa/z
-. ~/Projects/helpers/z/z.sh
-
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
 
@@ -70,7 +67,7 @@ export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
 export HIVE_HOME=export HIVE_HOME=/usr/local/Cellar/hive/0.13.1/libexec
 
 # Java
-export JAVA_HOME=/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java
+export JAVA_HOME=$(/usr/libexec/java_home)
 export CLASSPATH=.:$CLASSPATH
 
 # Gradle/Nebula
