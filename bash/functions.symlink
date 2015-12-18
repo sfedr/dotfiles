@@ -234,3 +234,31 @@ function o() {
 function tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# create function to init aws keys for base ami profile
+function get_aws_creds_for_boto() {
+  echo "Checking the credentials ..."
+  if [[ -f ~/aws_creds.json ]]; then
+    EXPIRATION=$(cat ~/aws_creds.json|jq -r '.Expiration'||:)
+    let DIFF_IN_MINUTES=(`date +%s -d "${EXPIRATION}"`-`date +%s`)/60
+    echo "Credentials are expiring in ${DIFF_IN_MINUTES} minutes"
+    # From AWS: The application is granted the permissions for the actions and resources that you've defined for the role
+    # through the security credentials associated with the role. These security credentials are temporary and we rotate them
+    # automatically. We make new credentials available at least five minutes prior to the expiration of the old credentials.
+    if [[ ${DIFF_IN_MINUTES} -gt 5 ]]; then
+      echo "We're good. Nothing to do."
+      return
+    fi
+  fi
+
+  echo "Updating the credentials"
+  ssh $(whoami)@awstest.netflix.com "/usr/local/bin/oq-ssh --region us-east-1 winston,0 \"curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/BaseIAMRole\"" > ~/aws_creds.json
+  mkdir -p ~/.aws
+  cat ~/aws_creds.json
+  echo "[default]" > ~/.aws/credentials
+  echo "aws_access_key_id = $(cat ~/aws_creds.json|jq -r '.AccessKeyId')" >> ~/.aws/credentials
+  echo "aws_secret_access_key = $(cat ~/aws_creds.json|jq -r '.SecretAccessKey')" >> ~/.aws/credentials
+  echo "aws_security_token = $(cat ~/aws_creds.json|jq -r '.Token')" >> ~/.aws/credentials
+  echo ""
+  echo "DONE."
+}

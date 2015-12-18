@@ -94,7 +94,6 @@ export OC_REPO_PATH=$OCTOOLS_ROOT
 ./setup/setup base
 
 echo "Refreshing commands..."
-source ./shell/oc_bash_profile.sh
 oc --autodiscover refresh -q
 
 echo "All done"
