@@ -252,7 +252,9 @@ function get_aws_creds_for_boto() {
   fi
 
   echo "Updating the credentials"
-  ssh $(whoami)@awstest.netflix.com "/usr/local/bin/oq-ssh --region us-east-1 winston,0 \"curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/BaseIAMRole\"" > ~/aws_creds.json
+  depl=${1-test}
+  echo "Running for $depl"
+  ssh $(whoami)@aws$depl.netflix.com "/usr/local/bin/oq-ssh --region us-east-1 winston,0 \"curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/BaseIAMRole\"" > ~/aws_creds.json
   mkdir -p ~/.aws
   cat ~/aws_creds.json
   echo "[default]" > ~/.aws/credentials
