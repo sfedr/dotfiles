@@ -41,7 +41,7 @@ project() {
                 ;;
             panics)
                 p
-                cd panicer
+                cd ocpanicer
                 workon panics
                 ;;
             ocperf)

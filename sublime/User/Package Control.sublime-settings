@@ -10,6 +10,8 @@
 		"Package Control",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
-		"SublimeLinter"
+		"SublimeLinter",
+		"SublimeLinter-pep8",
+		"SublimeLinter-pylint"
 	]
 }
