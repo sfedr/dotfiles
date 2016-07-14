@@ -6,12 +6,17 @@
 	"installed_packages":
 	[
 		"Alignment",
+		"Apache Hive",
 		"GitGutter",
+		"JSON Reindent",
+		"Markdown Preview",
 		"Package Control",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeLinter",
 		"SublimeLinter-pep8",
-		"SublimeLinter-pylint"
+		"SublimeLinter-pyflakes",
+		"SublimeLinter-pylint",
+		"SublimeREPL"
 	]
 }

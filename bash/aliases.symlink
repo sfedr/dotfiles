@@ -61,6 +61,10 @@ project() {
                 cd octools
                 workon oc
                 ;;
+            speed)
+                p
+                cd myspeed
+                ;;
             *)
                 echo "Don't know what to do with project $target"
         esac

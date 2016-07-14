@@ -67,13 +67,24 @@ export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
 export HIVE_HOME=export HIVE_HOME=/usr/local/Cellar/hive/0.13.1/libexec
 
 # Java
+# tmp override for HackDay
+#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export CLASSPATH=.:$CLASSPATH
 
 # Gradle/Nebula
 export PATH=$PATH:$HOME/Projects/NEBULA/wrapper
+export NEBULA_HOME=$HOME/Projects/NEBULA
 
 source ${OC_REPO_PATH}/shell/oc_bash_profile.sh
+source ${VIRTUAL_ENV}/bin/virtualenvwrapper.sh
 
 #to install homebrew into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# NRDP env vars
+export NF_IDFILE=/Users/sfedorov/idfile
+export NF_DPI_VIDEO_PLUGIN=x11;
+
+# dagobah-tool
+export PATH=$PATH:$PWD/dagobah-tool
