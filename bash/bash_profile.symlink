@@ -56,9 +56,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-# http://stackoverflow.com/questions/13804382/how-to-automatically-run-bin-bash-login-automatically-in-the-embeded-termin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # oc tools exports and config
 export OC_REPO_PATH=~/Projects/octools
 
@@ -67,17 +64,18 @@ export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
 export HIVE_HOME=export HIVE_HOME=/usr/local/Cellar/hive/0.13.1/libexec
 
 # Java
-# tmp override for HackDay
-#export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export CLASSPATH=.:$CLASSPATH
 
+# Groovy
+export GROOVY_HOME=/Users/sfedorov/.sdkman/candidates/groovy/current
+export PATH=$PATH:$HOME/Projects/dagobah-tool/$GROOVY_HOME/bin
+
 # Gradle/Nebula
 export PATH=$PATH:$HOME/Projects/NEBULA/wrapper
-export NEBULA_HOME=$HOME/Projects/NEBULA
+export NEBULA_HOME=$HOME/Projects/NEBULA/wrapper
 
 source ${OC_REPO_PATH}/shell/oc_bash_profile.sh
-source ${VIRTUAL_ENV}/bin/virtualenvwrapper.sh
 
 #to install homebrew into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -87,4 +85,18 @@ export NF_IDFILE=/Users/sfedorov/idfile
 export NF_DPI_VIDEO_PLUGIN=x11;
 
 # dagobah-tool
-export PATH=$PATH:$PWD/dagobah-tool
+export PATH=$PATH:$HOME/Projects/dagobah-tool
+
+# Go
+export GOPATH=/Users/sfedorov/Projects/Go
+export PATH="$PATH:$GOPATH/bin"
+
+# API.Next install
+export API_SCRIPT_BIN=/Users/sfedorov/Projects/API.Next/api-service-layer-4.5876-sdk/bin
+
+# npm path
+export PATH="$PATH:$HOME/.npm-packages/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/sfedorov/.sdkman"
+[[ -s "/Users/sfedorov/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/sfedorov/.sdkman/bin/sdkman-init.sh"

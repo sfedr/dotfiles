@@ -61,9 +61,26 @@ project() {
                 cd octools
                 workon oc
                 ;;
+            cpr)
+                p
+                cd cpr/api
+                workon cpr
+                ;;
             speed)
                 p
                 cd myspeed
+                ;;
+            oca)
+                p
+                cd ocafirmware
+                ;;
+            ftl)
+                p
+                cd ftl-proxy
+                ;;
+            mcs)
+                p
+                cd mcs
                 ;;
             *)
                 echo "Don't know what to do with project $target"
