@@ -4,8 +4,8 @@
 [hub]
     protocol = https
 [user]
-    name = Sergey Fedorov
-    email = sfedorov@netflix.com
+	name = Sergey Fedorov
+	email = sfedorov@netflix.com
 [credential]
     helper = osxkeychain
 [alias]
