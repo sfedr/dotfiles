@@ -58,6 +58,7 @@ fi
 
 # oc tools exports and config
 export OC_REPO_PATH=~/Projects/octools
+export OC_PYTHON_ENV_ROOT=~/.oc/python-envs
 
 # hive/hadoop
 export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
