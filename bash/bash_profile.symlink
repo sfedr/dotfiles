@@ -93,7 +93,7 @@ export GOPATH=/Users/sfedorov/Projects/Go
 export PATH="$PATH:$GOPATH/bin"
 
 # API.Next install
-export API_SCRIPT_BIN=/Users/sfedorov/Projects/API.Next/api-service-layer-4.7013-sdk/bin
+export API_SCRIPT_BIN=/Users/sfedorov/Projects/API.Next/api-service-layer-4.8971-sdk/bin
 
 # npm path
 export PATH="$PATH:$HOME/.npm-packages/bin"
