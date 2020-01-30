@@ -17,28 +17,12 @@ sudo scutil --set ComputerName "sfedr-mac"
 sudo scutil --set HostName "sfedr"
 sudo scutil --set LocalHostName "sfedr"
 
-# Set standby delay to 4 hours (default is 1 hour)
-sudo pmset -a standbydelay 14400
-
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=%00
 
 # Menu bar: disable transparency
 defaults write com.apple.universalaccess reduceTransparency -bool true
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
-
-# Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-	defaults write "${domain}" dontAutoLoad -array \
-		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-		"/System/Library/CoreServices/Menu Extras/User.menu"
-done
-defaults write com.apple.systemuiserver menuExtras -array \
-	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
-	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
-	"/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -126,9 +110,6 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryCli
 # Trackpad: disable launchpad pinch with thumb and three fingers
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -143,7 +124,8 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -173,9 +155,9 @@ defaults write com.apple.finder QuitMenuItem -bool true
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-# Set Desktop as the default location for new Finder windows
+# Set Projects as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
-defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Projects/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
@@ -232,14 +214,7 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
-
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
-
-
-# Show the ~/Library folder
+# Show the ~/Library and ~/Projects folder
 chflags nohidden ~/Library
 chflags nohidden ~/Projects
 
@@ -253,7 +228,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
-
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
@@ -275,21 +249,9 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
-
 # Don’t group windows by application in Mission Control
 # (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false
-
-# Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
-
-# Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
 
 # Do not automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool false
@@ -330,7 +292,6 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
-
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
@@ -366,7 +327,6 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 ###############################################################################
 # Photos                                                                      #
 ###############################################################################
-
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
@@ -390,3 +350,9 @@ defaults write com.google.Chrome.canary DisablePrintPreview -bool true
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
+
+###############################################################################
+# Spectacle.app                                                               #
+###############################################################################
+# Set up my preferred keyboard shortcuts
+cp -r Spectacle/Shortcuts.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null

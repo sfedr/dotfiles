@@ -58,6 +58,7 @@ fi
 
 # oc tools exports and config
 export OC_REPO_PATH=~/Projects/octools
+export OC3_REPO_PATH=~/Projects/octools3
 export OC_PYTHON_ENV_ROOT=~/.oc/python-envs
 
 # hive/hadoop
@@ -65,7 +66,7 @@ export HADOOP_HOME=/usr/local/Cellar/hadoop/2.5.0
 export HIVE_HOME=export HIVE_HOME=/usr/local/Cellar/hive/0.13.1/libexec
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home
 export CLASSPATH=.:$CLASSPATH
 
 # Groovy
@@ -101,3 +102,12 @@ export PATH="$PATH:$HOME/.npm-packages/bin"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/sfedorov/.sdkman"
 [[ -s "/Users/sfedorov/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/sfedorov/.sdkman/bin/sdkman-init.sh"
+
+# Android studio vars
+export ANDROID_HOME=/Users/sfedorov/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/sfedorov/Library/Android/sdk
+export ANDROID_AVD_HOME=/Users/sfedorov/.android/avd
+export PATH=$PATH:$ANDROID_HOME/tools 
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH/:$ANDROID_HOME/platform-tools
+source ${OC3_REPO_PATH}/shell/oc_bash_profile.sh

@@ -118,25 +118,3 @@ export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
-
-
-# My Custom Stuff to check over
-#function git_info() {
-    # check if we're in a git repo
-#    git rev-parse --is-inside-work-tree &>/dev/null || return
-
-    # quickest check for what branch we're on
-#    branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
-
-    # check if it's dirty (via github.com/sindresorhus/pure)
-#    dirty=$(git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ]&& echo -e "*")
-
-#    echo $WHITE" on "$PURPLE$branch$dirty
-#}
-
-# Only show username/host if not default
-#function usernamehost() {
-#    if [ $USER != $default_username ]; then echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin "; fi
-#}
-
-#PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\[$WHITE\]\n⚡  \[$RESET\]"
