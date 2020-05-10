@@ -89,12 +89,15 @@ export NF_DPI_VIDEO_PLUGIN=x11;
 # dagobah-tool
 export PATH=$PATH:$HOME/Projects/dagobah-tool
 
+# ruby
+export PATH=/usr/local/opt/ruby/bin:$PATH
+
 # Go
 export GOPATH=/Users/sfedorov/Projects/Go
 export PATH="$PATH:$GOPATH/bin"
 
 # API.Next install
-export API_SCRIPT_BIN=/Users/sfedorov/Projects/API.Next/api-service-layer-4.8971-sdk/bin
+export API_SCRIPT_BIN=/Users/sfedorov/Projects/API.Next/api-service-layer-4.15520-sdk-scripts/bin
 
 # npm path
 export PATH="$PATH:$HOME/.npm-packages/bin"
@@ -111,3 +114,12 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH/:$ANDROID_HOME/platform-tools
 source ${OC3_REPO_PATH}/shell/oc_bash_profile.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/sfedorov/.sdkman"
+[[ -s "/Users/sfedorov/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/sfedorov/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="/Users/sfedorov/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
