@@ -77,8 +77,6 @@ export PATH=$PATH:$HOME/Projects/dagobah-tool/$GROOVY_HOME/bin
 export PATH=$PATH:$HOME/Projects/NEBULA/wrapper
 export NEBULA_HOME=$HOME/Projects/NEBULA/wrapper
 
-source ${OC_REPO_PATH}/shell/oc_bash_profile.sh
-
 #to install homebrew into /Applications
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -123,3 +121,4 @@ export NVM_DIR="/Users/sfedorov/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+source ${OC_REPO_PATH}/shell/oc_bash_profile.sh
